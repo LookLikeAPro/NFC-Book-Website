@@ -1,0 +1,77 @@
+[{
+  "link": "dance",
+  "title": "D.A.N.C.E. : five steps to living your best life",
+  "author": "Deborah Dejong, MSW",
+  "description": "This is the book's short description?",
+  "resources": {
+    "book": [{
+      "format": "PDF",
+      "link": "/resources/dance/book/Dance.pdf"
+    }, {
+      "format": "Epub",
+      "link": "/resources/dance/book/Dance.epub"
+    }],
+    "audiobook": [{
+      "name": "Chapter 1",
+      "link": "/resources/dance/audiobook/DANCE Ch 1.mp3"
+    }, {
+      "name": "Chapter 2",
+      "link": "/resources/dance/audiobook/DANCE Ch 2.mp3"
+    }, {
+      "name": "Chapter 3",
+      "link": "/resources/dance/audiobook/DANCE Ch 3.mp3"
+    }, {
+      "name": "Chapter 4",
+      "link": "/resources/dance/audiobook/DANCE Ch 4.mp3"
+    }, {
+      "name": "Chapter 5 Pt 1",
+      "link": "/resources/dance/audiobook/DANCE Ch 5.mp3"
+    }, {
+      "name": "Chapter 5 Pt 2",
+      "link": "/resources/dance/audiobook/DANCE Ch 5 2.mp3"
+    }, {
+      "name": "Chapter 6",
+      "link": "/resources/dance/audiobook/DANCE Ch 6.mp3"
+    }, {
+      "name": "Chapter 7",
+      "link": "/resources/dance/audiobook/DANCE Ch 7.mp3"
+    }, {
+      "name": "Chapter 8",
+      "link": "/resources/dance/audiobook/DANCE Ch 8.mp3"
+    }, {
+      "name": "Chapter 9",
+      "link": "/resources/dance/audiobook/DANCE Ch 9.mp3"
+    }],
+    "interview": [{
+      "name": "Chapter 1",
+      "link": "/resources/dance/audiobook/DANCE Ch 1.mp3"
+    }, {
+      "name": "Chapter 2",
+      "link": "/resources/dance/audiobook/DANCE Ch 2.mp3"
+    }, {
+      "name": "Chapter 3",
+      "link": "/resources/dance/audiobook/DANCE Ch 3.mp3"
+    }, {
+      "name": "Chapter 4",
+      "link": "/resources/dance/audiobook/DANCE Ch 4.mp3"
+    }, {
+      "name": "Chapter 5 Pt 1",
+      "link": "/resources/dance/audiobook/DANCE Ch 5.mp3"
+    }, {
+      "name": "Chapter 5 Pt 2",
+      "link": "/resources/dance/audiobook/DANCE Ch 5 2.mp3"
+    }, {
+      "name": "Chapter 6",
+      "link": "/resources/dance/audiobook/DANCE Ch 6.mp3"
+    }, {
+      "name": "Chapter 7",
+      "link": "/resources/dance/audiobook/DANCE Ch 7.mp3"
+    }, {
+      "name": "Chapter 8",
+      "link": "/resources/dance/audiobook/DANCE Ch 8.mp3"
+    }, {
+      "name": "Chapter 9",
+      "link": "/resources/dance/audiobook/DANCE Ch 9.mp3"
+    }]
+  }
+}]
