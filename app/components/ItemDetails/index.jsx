@@ -43,13 +43,12 @@ module.exports = React.createClass({
   _playInterview (i) {
     console.log(i);
   },
-  dialogActions: [
-    { text: 'Cancel' },
-    // { text: 'Submit', onTouchTap: this._onDialogSubmit, ref: 'submit' }
-    { text: 'Confirm', ref: 'submit' }
-  ],
+  _onDialogSubmit () {
+    window.location = this.link;
+    this.refs.confirmDownload.dismiss();
+  },
   _downloadDialog (link) {
-    console.log(link);
+    this.link = link;
     this.refs.confirmDownload.show();
   },
   render () {
@@ -58,8 +57,12 @@ module.exports = React.createClass({
   			<h3>Error - There is no such book.</h3>
   		</div>
   	}
+    var dialogActions = [
+      { text: 'Cancel' },
+      { text: 'Confirm', ref: 'submit', onTouchTap: this._onDialogSubmit}
+    ];
     return <div className='pageContent'>
-      <Dialog ref="confirmDownload" title="Starting Download" actions={this.dialogActions} actionFocus="submit">
+      <Dialog ref="confirmDownload" title="Starting Download" actions={dialogActions} actionFocus="submit">
         Confirming this dialogue will download the file to your phone for offline reading.
       </Dialog>
       <Card className="book-card">
@@ -68,9 +71,8 @@ module.exports = React.createClass({
           {this.state.book.description}
         </CardText>
         <CardActions>
-          <FlatButton label="View Details" secondary={true} />
           {this.state.book.resources.book.map((book, i)=>{
-            return <FlatButton label={"Download "+book.format} primary={true} onTouchTap={this._downloadDialog.bind(this, book.link)} />
+            return <RaisedButton label={"Download "+book.format} primary={true} onTouchTap={this._downloadDialog.bind(this, book.link)} />
           })}
         </CardActions>
         <Tabs> 

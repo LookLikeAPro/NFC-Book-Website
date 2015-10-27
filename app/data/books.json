@@ -2,7 +2,7 @@
   "link": "dance",
   "title": "D.A.N.C.E. : five steps to living your best life",
   "author": "Deborah Dejong, MSW",
-  "description": "This is the book's short description?",
+  "description": "Deborah Dejong convincingly inspires everyone whose life she touches to capture their passion. She invites the reader to live their own best life starting today! Dejong demonstrates through her five step model that happiness and peace are available to everyone if they choose to DANCE.",
   "resources": {
     "book": [{
       "format": "PDF",
@@ -44,34 +44,25 @@
     }],
     "interview": [{
       "name": "Chapter 1",
-      "link": "/resources/dance/audiobook/DANCE Ch 1.mp3"
+      "link": "/resources/dance/interviews/DANCE Ch 1.mp3"
     }, {
       "name": "Chapter 2",
-      "link": "/resources/dance/audiobook/DANCE Ch 2.mp3"
+      "link": "/resources/dance/interviews/Interview 2 edited.mp3"
     }, {
       "name": "Chapter 3",
-      "link": "/resources/dance/audiobook/DANCE Ch 3.mp3"
+      "link": "/resources/dance/interviews/Interview 3 edited.mp3"
     }, {
       "name": "Chapter 4",
-      "link": "/resources/dance/audiobook/DANCE Ch 4.mp3"
+      "link": "/resources/dance/interviews/Interview 4 edited.mp3"
     }, {
       "name": "Chapter 5 Pt 1",
-      "link": "/resources/dance/audiobook/DANCE Ch 5.mp3"
-    }, {
-      "name": "Chapter 5 Pt 2",
-      "link": "/resources/dance/audiobook/DANCE Ch 5 2.mp3"
+      "link": "/resources/dance/interviews/Interview 5 edited.mp3"
     }, {
       "name": "Chapter 6",
-      "link": "/resources/dance/audiobook/DANCE Ch 6.mp3"
+      "link": "/resources/dance/interviews/Interview 7 edited.mp3"
     }, {
-      "name": "Chapter 7",
-      "link": "/resources/dance/audiobook/DANCE Ch 7.mp3"
-    }, {
-      "name": "Chapter 8",
-      "link": "/resources/dance/audiobook/DANCE Ch 8.mp3"
-    }, {
-      "name": "Chapter 9",
-      "link": "/resources/dance/audiobook/DANCE Ch 9.mp3"
+      "name": "Chapter 6",
+      "link": "/resources/dance/interviews/Interview 8 edited.mp3"
     }]
   }
 }]

@@ -13,7 +13,7 @@ module.exports = React.createClass({
 
   render: function() {
     var menuItems = [
-      {route: '/', text: 'Home'},
+      {route: '/', text: 'Catalog'},
       {route: '/about', text: 'About'}
     ];
 

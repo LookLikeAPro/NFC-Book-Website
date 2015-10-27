@@ -35,7 +35,7 @@
     "react-hot-loader": "^1.2.5",
     "react-proxy-loader": "^0.3.4",
     "react-router": "^0.13.2",
-    "react-tap-event-plugin": "^0.1.6",
+    "react-tap-event-plugin": "^0.2.1",
     "sass-loader": "^2.0.1",
     "style-loader": "0.12.3",
     "superagent": "^1.2.0",
@@ -55,10 +55,7 @@
       "react"
     ],
     "rules": {
-      "strict": [
-        2,
-        "global"
-      ],
+      "strict": 0,
       "quotes": [
         1,
         "double"
