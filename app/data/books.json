@@ -43,25 +43,28 @@
       "link": "/resources/dance/audiobook/DANCE Ch 9.mp3"
     }],
     "interview": [{
-      "name": "Chapter 1",
-      "link": "/resources/dance/interviews/DANCE Ch 1.mp3"
-    }, {
-      "name": "Chapter 2",
+      "name": "Julian Knight",
       "link": "/resources/dance/interviews/Interview 2 edited.mp3"
     }, {
-      "name": "Chapter 3",
+      "name": "Rose",
       "link": "/resources/dance/interviews/Interview 3 edited.mp3"
     }, {
-      "name": "Chapter 4",
+      "name": "Robin McWillan",
       "link": "/resources/dance/interviews/Interview 4 edited.mp3"
     }, {
-      "name": "Chapter 5 Pt 1",
+      "name": "Debbie Wang",
       "link": "/resources/dance/interviews/Interview 5 edited.mp3"
     }, {
-      "name": "Chapter 6",
-      "link": "/resources/dance/interviews/Interview 7 edited.mp3"
+      "name": "Robin Part 1",
+      "link": "/resources/dance/interviews/Ch.6.interview,partA,RSt..mp3"
     }, {
-      "name": "Chapter 6",
+      "name": "Robin Part 2",
+      "link": "/resources/dance/interviews/Ch.6.interview.partB.RSt.mp3"
+    }, {
+      "name": "Robin Part 3",
+      "link": "/resources/dance/interviews/Ch.6.interview.PartC.RSt..mp3"
+    }, {
+      "name": "David Joseph",
       "link": "/resources/dance/interviews/Interview 8 edited.mp3"
     }]
   }
