@@ -1,40 +1,29 @@
-'use strict';
+import React, {Component} from "react";
 
-var React        = require('react'),
-    RouteHandler = require('react-router').RouteHandler,
-    mui          = require('material-ui'),
-    ThemeManager = new mui.Styles.ThemeManager(),
-    TopNav       = require('../TopNav'),
-    SideNav      = require('../SideNav');
+import TopNav from "components/TopNav";
+import SideNav from "components/SideNav";
 
 require('./style');
 
 import books from "../../data/books.json";
 
-var Application = React.createClass({
-  getChildContext: function() {
+export default class Application extends Component {
+  static childContextTypes = {
+    books: React.PropTypes.array
+  };
+  getChildContext () {
     return {
-      muiTheme: ThemeManager.getCurrentTheme(),
       books: books
     };
-  },
-
-  render: function() {
+  }
+  render () {
     return <div className={'application'}>
-      <TopNav onMenuIconButtonTouch={this._onMenuIconButtonTouch}/>
+      <TopNav onMenuIconButtonTouch={::this._onMenuIconButtonTouch}/>
       <SideNav ref='sideNav' />
-      <RouteHandler />
+      {this.props.children}
     </div>;
-  },
-
-  _onMenuIconButtonTouch: function() {
+  }
+  _onMenuIconButtonTouch() {
     this.refs.sideNav.toggle();
   }
-});
-
-Application.childContextTypes = {
-  muiTheme: React.PropTypes.object,
-  books: React.PropTypes.array
-};
-
-module.exports = Application;
+}

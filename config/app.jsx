@@ -1,15 +1,13 @@
-'use strict';
+import React from "react";
+import ReactDOM from "react-dom";
+import {Router, hashHistory} from "react-router"
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import routes from "../app/routes";
 
-var React                = require('react'),
-    Router               = require('react-router'),
-    routes               = require('../app/routes');
-var injectTapEventPlugin = require('react-tap-event-plugin');
+injectTapEventPlugin();
 
-// react-router handles location
-Router.run(routes, Router.HistoryLocation, function(Application, state) {
-
-  injectTapEventPlugin();
-
-  // Render the components
-  React.render(<Application />, document.getElementById('content'));
-});
+ReactDOM.render(
+  <Router history={hashHistory} children={routes}>
+  </Router>,
+  document.getElementById("content")
+);

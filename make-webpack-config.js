@@ -11,12 +11,13 @@ module.exports = function(options) {
     main: reactEntry('main')
     // second: reactEntry('second')
   };
+  var babel = "babel?presets[]=react&presets[]=es2015&presets[]=stage-0&plugins[]=syntax-decorators&plugins[]=transform-decorators";
   var loaders = {
     'coffee': 'coffee-redux-loader',
-    'jsx': options.hotComponents ? ['react-hot-loader', 'babel-loader'] : 'babel-loader',
+    'jsx': options.hotComponents ? ['react-hot-loader', babel] : babel,
     'json': 'json-loader',
     'js': {
-      loader: 'babel-loader',
+      loader: babel,
       include: path.join(__dirname, 'app')
     },
     'json5': 'json5-loader',

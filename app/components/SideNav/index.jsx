@@ -1,38 +1,30 @@
-'use strict';
+import React from "react";
 
-var React   = require('react'),
-    Router  = require('react-router'),
-    mui     = require('material-ui'),
-    LeftNav = mui.LeftNav;
+import LeftNav from 'material-ui/lib/left-nav';
+import MenuItem from 'material-ui/lib/menus/menu-item';
+import {Link} from "react-router";
+
+import AppBar from "material-ui/lib/app-bar";
 
 require('./style');
 
-module.exports = React.createClass({
+import {Component} from "react";
 
-  mixins: [Router.Navigation, Router.State],
-
-  render: function() {
-    var menuItems = [
-      {route: '/', text: 'Catalog'},
-      {route: '/about', text: 'About'}
-    ];
-
-    var header = <div className='header'>Menu</div>;
-
-    return <LeftNav
-      className='sideNav'
-      ref='leftNav'
-      header={header}
-      menuItems={menuItems}
-      docked={false}
-      onChange={this._onLeftNavChange} />;
-  },
-
-  toggle: function() {
-    this.refs.leftNav.toggle();
-  },
-
-  _onLeftNavChange: function(e, key, payload) {
-    this.transitionTo(payload.route);
+export default class TopNav extends Component {
+  state = {
+    open: false
+  };
+  toggle() {
+    this.setState({open: !this.state.open});
   }
-});
+  handleClose() {
+    this.setState({open: false});
+  }
+  render() {
+    return (<LeftNav open={this.state.open} docked={false} onRequestChange={open => this.setState({open})}>
+        <AppBar title="Navigation"/>
+        <Link to={`/`}><MenuItem>Catalog</MenuItem></Link>
+        <Link to={`/about`}><MenuItem>About</MenuItem></Link>
+      </LeftNav>);
+  }
+}
