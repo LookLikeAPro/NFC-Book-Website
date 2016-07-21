@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   # get 'webapp/index'
   # root 'webapp#index'
-  mount_ember_app :frontend, to: "/"
 
   devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -23,6 +22,8 @@ Rails.application.routes.draw do
     	resources :publications
     end
   end
+
+  mount_ember_app :frontend, to: "/"
 
   # Example resource route with options:
   #   resources :products do

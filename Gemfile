@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails', '4.2.7'
 gem 'rake'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -41,7 +41,7 @@ gem 'rails-api'
 gem 'grape', '>= 0.10.0'
 # Then choose your preferred paginator from the following:
 # gem 'kaminari'
-gem 'will_paginate'
+# gem 'will_paginate', '3.1.0'
 
 gem 'api-pagination'
 
