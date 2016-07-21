@@ -1,8 +1,14 @@
-<h2>Publication</h2>
-
-<ul>
-  {{model.title}}
-</ul>
-
-
+<div class="uk-grid">
+  <div class="uk-width-1-4">
+    <div class="book-display">
+      <img class="book-image" src="http://craigmod.com/images/journal/coccyx/aba-04.png" />
+    </div>
+  </div>
+  <div class="uk-width-3-4">
+    <p></p>
+    <div class="uk-panel uk-panel-box uk-panel-box-primary">
+      <h3 class="uk-panel-title">{{model.title}}</h3> Lorem ipsum dolor sit amet, consectetur adipisicing elit. <code>.uk-panel-box-primary</code>
+    </div>
+  </div>
+</div>
 {{outlet}}
