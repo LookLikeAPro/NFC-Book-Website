@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  # get 'webapp/index'
-  # root 'webapp#index'
+  match "/auth", to: "auth#index", via: [:get, :post]
 
   devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
