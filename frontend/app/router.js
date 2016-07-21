@@ -7,6 +7,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('publications');
+  this.route('publication', { path: '/publication/:publication_id' });
 });
 
 export default Router;
