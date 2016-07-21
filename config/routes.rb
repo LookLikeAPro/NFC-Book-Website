@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'webapp/index'
-  root 'webapp#index'
+  # get 'webapp/index'
+  # root 'webapp#index'
+  mount_ember_app :frontend, to: "/"
 
   devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

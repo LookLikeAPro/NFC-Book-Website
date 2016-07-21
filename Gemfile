@@ -59,5 +59,7 @@ group :development do
   gem 'spring'
 end
 
-gem 'pg'
+gem "ember-cli-rails"
+
+# gem 'pg'
 
