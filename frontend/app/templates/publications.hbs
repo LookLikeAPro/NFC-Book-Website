@@ -4,16 +4,20 @@
     <h2></h2>
     <div>
       {{#each model as |publication|}}
+      {{#link-to "publication" publication}}
       <div class="uk-panel uk-panel-box uk-panel-box-primary">
         <div class="uk-grid">
           <div class="uk-width-1-6">
-            <img class="book-image" src="{{publication.picture}}" />
+            <div class="book-icon"><img src={{publication.picture}} /></div>
           </div>
           <div class="uk-width-5-6">
-            <h3 class="uk-panel-title">{{publication.title}}</h3> Lorem ipsum dolor sit amet, consectetur adipisicing elit. <code>.uk-panel-box-primary</code>
+            <h3 class="uk-panel-title">{{publication.title}}</h3>
+            <p>{{publication.author}}</p>
+            <p>{{publication.description}}</p>
           </div>
         </div>
       </div>
+      {{/link-to}}
       {{/each}}
     </div>
   </div>

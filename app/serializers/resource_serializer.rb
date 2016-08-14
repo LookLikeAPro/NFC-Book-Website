@@ -1,3 +1,4 @@
 class ResourceSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :publication, :file
+	belongs_to :publication
+  attributes :id, :name, :description, :file
 end

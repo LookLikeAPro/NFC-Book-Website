@@ -18,11 +18,12 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   scope '/api' do
     scope '/v1' do
-    	resources :publications
+      resources :publications
       resources :resources
     end
   end
 
+  get 'nfc/:slug' => 'application#slugredirect'
   mount_ember_app :frontend, to: "/"
 
   # Example resource route with options:
