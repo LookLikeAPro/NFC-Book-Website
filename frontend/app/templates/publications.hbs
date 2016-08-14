@@ -1,9 +1,22 @@
-<h2>List of Publications</h2>
-
-<ul>
-  {{#each model as |publication|}}
-    <li>{{publication}}</li>
-  {{/each}}
-</ul>
-
+<div class="uk-grid">
+  <div class="uk-width-1-6"></div>
+  <div class="uk-width-4-6">
+    <h2></h2>
+    <div>
+      {{#each model as |publication|}}
+      <div class="uk-panel uk-panel-box uk-panel-box-primary">
+        <div class="uk-grid">
+          <div class="uk-width-1-6">
+            <img class="book-image" src="{{publication.picture}}" />
+          </div>
+          <div class="uk-width-5-6">
+            <h3 class="uk-panel-title">{{publication.title}}</h3> Lorem ipsum dolor sit amet, consectetur adipisicing elit. <code>.uk-panel-box-primary</code>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+  <div class="uk-width-1-6"></div>
+</div>
 {{outlet}}

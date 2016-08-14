@@ -1,7 +1,14 @@
 .nav-bar-top {
-	height: 100px;
 	width: 100%;
 	background: #eee;
+	position: relative;
+	margin: 0;
+	text-align:center;
+	h1 {
+		font-size: 60px;
+		line-height: 60px;
+		margin: 0;
+	}
 }
 
 .book-display {
@@ -10,3 +17,5 @@
 		// width: 50%;
 	}
 }
+
+::-webkit-scrollbar{width:12px;background:transparent}::-webkit-scrollbar-thumb{border-radius:1px;background:#b3b3b3}

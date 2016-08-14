@@ -41,8 +41,7 @@ gem "paperclip", "~> 5.0.0"
 gem 'rails-api'
 gem 'grape', '>= 0.10.0'
 # Then choose your preferred paginator from the following:
-# gem 'kaminari'
-# gem 'will_paginate', '3.1.0'
+gem 'kaminari'
 
 gem 'api-pagination'
 gem 'active_model_serializers', '~> 0.10.0'
@@ -56,7 +55,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 3.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

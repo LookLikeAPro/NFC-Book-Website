@@ -1,13 +1,12 @@
 <div class="nav-bar-top">
-
+  <h1>NFC Books</h1>
 </div>
 <nav class="uk-navbar">
-    <ul class="uk-navbar-nav">
-        <li class="uk-active"><a href="">NFC Books</a></li>
-        <li><a href="">...</a></li>
-        <li class="uk-parent"><a href="">...</a></li>
-    </ul>
+  <ul class="uk-navbar-nav">
+    {{#link-to "publications" tagName="li" activeClass="uk-active"}}
+    <a href={{view.href}}>Catalogue</a> {{/link-to}}
+    {{#link-to "about" tagName="li" activeClass="uk-active"}}
+    <a href={{view.href}}>About</a> {{/link-to}}
+  </ul>
 </nav>
-
-
 {{yield}}
