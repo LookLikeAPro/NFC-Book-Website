@@ -23,8 +23,13 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'nfc/:slug' => 'application#slugredirect'
-  mount_ember_app :frontend, to: "/"
+  get 'nfc/:slug' => 'frontend#slugredirect'
+
+  if !Rails.env.production?
+    mount_ember_app :frontend, to: "/"
+  else
+    get '/' => 'frontend#index'
+  end
 
   # Example resource route with options:
   #   resources :products do

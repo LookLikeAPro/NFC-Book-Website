@@ -143,6 +143,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
+    pg (0.18.2)
     pkg-config (1.1.7)
     rack (1.6.4)
     rack-accept (0.4.5)
@@ -255,6 +256,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   paperclip (~> 5.0.0)
+  pg
   rails (= 4.2.7)
   rails-api
   rails_admin
