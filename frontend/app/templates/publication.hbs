@@ -1,15 +1,37 @@
 <div class="uk-grid">
-  <div class="uk-width-1-4">
+  <div class="uk-width-medium-1-4">
     <div class="book-display">
       <img class="book-image" src={{model.picture}} />
     </div>
   </div>
-  <div class="uk-width-3-4">
+  <div class="uk-width-medium-3-4">
+  <div class="uk-block" style="padding: 10px">
     <p></p>
     <h3>{{model.title}}</h3>
     <p>{{model.author}}</p>
     <p>{{model.description}}</p>
-    <h3>Resources</h3>
+    <h3>Ebook</h3>
+    {{#each model.resources as |resource|}}
+    asda
+      {{#if resource.isEbook}}
+        {{resource.file}}
+      {{/if}}
+    {{/each}}
+    <h3>Audiobooks</h3>
+    {{#each model.resources as |resource|}}
+    asda
+      {{#if resource.isAudiobook}}
+        {{resource.file}}
+      {{/if}}
+    {{/each}}
+    <h3>Interviews</h3>
+    {{#each model.resources as |resource|}}
+    asda
+      {{#if resource.isInterview}}
+        {{resource.file}}
+      {{/if}}
+    {{/each}}
+  </div>
   </div>
 </div>
 {{outlet}}

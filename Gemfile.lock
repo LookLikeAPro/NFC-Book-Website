@@ -73,11 +73,11 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
-    ember-cli-rails (0.7.4)
+    ember-cli-rails (0.8.0)
       cocaine (~> 0.5.8)
       ember-cli-rails-assets (~> 0.6.2)
       html_page (~> 0.1.0)
-      railties (>= 3.2, < 5)
+      railties (>= 3.2)
     ember-cli-rails-assets (0.6.2)
     enumerable-lazy (0.0.1)
     equalizer (0.0.11)
@@ -87,7 +87,7 @@ GEM
       railties (>= 3.2, < 5.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    grape (0.16.2)
+    grape (0.17.0)
       activesupport
       builder
       hashie (>= 2.1.0)
@@ -197,7 +197,7 @@ GEM
     rdoc (4.2.2)
       json (~> 1.4)
     remotipart (1.2.1)
-    responders (2.2.0)
+    responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
     safe_yaml (1.0.4)
     sass (3.4.22)

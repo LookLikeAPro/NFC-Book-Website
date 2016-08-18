@@ -10,7 +10,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('publications', { path: '/' });
-  this.route('publication', { path: '/publication/:publication_id' });
+  this.route('publication', { path: '/publication/:publication_id' }, function() {});
   this.route('about');
 });
 
