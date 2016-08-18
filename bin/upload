@@ -1,0 +1,41 @@
+#!/usr/bin/env ruby
+require 'pathname'
+
+APP_ROOT = Pathname.new File.expand_path('../../',  __FILE__)
+
+Dir.chdir APP_ROOT do
+  # This script is a starting point to setup your application.
+  # Add necessary setup steps to this file:
+  puts "== Building frontend =="
+  system "cd frontend; npm run build;"
+
+  puts "== Moving assets to pipeline =="
+  system "mv frontend/dist/assets/vendor.css app/assets/stylesheets/ember-vendor.css"
+  system "mv frontend/dist/assets/frontend.css app/assets/stylesheets/ember-frontend.css"
+  system "mv frontend/dist/assets/vendor.js app/assets/javascripts/ember-vendor.js"
+  system "mv frontend/dist/assets/frontend.js app/assets/javascripts/ember-frontend.js"
+
+  system "rm -r frontend/dist/;"
+
+  puts "== Creating temporary commit =="
+  system "git add app/assets/stylesheets/ember-vendor.css"
+  system "git add app/assets/stylesheets/ember-frontend.css"
+  system "git add app/assets/javascripts/ember-vendor.js"
+  system "git add app/assets/javascripts/ember-frontend.js"
+  system "git commit -m 'temp';"
+
+  puts "== Deploying =="
+  system "eb deploy;"
+
+  puts "== Removing temporary commit =="
+  system "git reset --soft HEAD~1;"
+  system "rm app/assets/stylesheets/ember-vendor.css"
+  system "rm app/assets/stylesheets/ember-frontend.css"
+  system "rm app/assets/javascripts/ember-vendor.js"
+  system "rm app/assets/javascripts/ember-frontend.js"
+  system "git add app/assets/stylesheets/ember-vendor.css"
+  system "git add app/assets/stylesheets/ember-frontend.css"
+  system "git add app/assets/javascripts/ember-vendor.js"
+  system "git add app/assets/javascripts/ember-frontend.js"
+
+end

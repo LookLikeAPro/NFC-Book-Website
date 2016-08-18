@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>NFC Books</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/dist/assets/vendor.css" />
-    <link rel="stylesheet" href="/dist/assets/frontend.css" />
+    <%= stylesheet_link_tag 'ember-vendor', media: 'all' %>
+    <%= stylesheet_link_tag 'ember-frontend', media: 'all' %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.min.css" />
+    <%= csrf_meta_tags %>
   </head>
   <body>
-    <script src="/dist/assets/vendor.js"></script>
+    <%= javascript_include_tag 'ember-vendor' %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/js/uikit.min.js"></script>
-    <script src="/dist/assets/frontend.js"></script>
+    <%= javascript_include_tag 'ember-frontend' %>
   </body>
 </html>

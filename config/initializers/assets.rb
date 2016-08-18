@@ -9,3 +9,9 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+if Rails.env.production?
+	Rails.application.config.assets.precompile += %w( ember-vendor.css )
+	Rails.application.config.assets.precompile += %w( ember-frontend.css )
+	Rails.application.config.assets.precompile += %w( ember-vendor.js )
+	Rails.application.config.assets.precompile += %w( ember-frontend.js )
+end

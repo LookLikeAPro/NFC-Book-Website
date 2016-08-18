@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   if !Rails.env.production?
     mount_ember_app :frontend, to: "/"
   else
-    get '/' => 'frontend#index'
+    get '*anything' => 'frontend#index'
   end
 
   # Example resource route with options:
