@@ -33,7 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'rails_admin'
 gem 'devise'
-gem "paperclip", "~> 5.0.0"
+gem "paperclip", "~> 5.1.0"
 
 # =========== Pagination ============
 gem 'rails-api'

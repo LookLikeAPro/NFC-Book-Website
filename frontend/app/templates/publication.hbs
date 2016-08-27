@@ -12,21 +12,18 @@
     <p>{{model.description}}</p>
     <h3>Ebook</h3>
     {{#each model.resources as |resource|}}
-    asda
       {{#if resource.isEbook}}
         {{resource.file}}
       {{/if}}
     {{/each}}
     <h3>Audiobooks</h3>
     {{#each model.resources as |resource|}}
-    asda
       {{#if resource.isAudiobook}}
         {{resource.file}}
       {{/if}}
     {{/each}}
     <h3>Interviews</h3>
     {{#each model.resources as |resource|}}
-    asda
       {{#if resource.isInterview}}
         {{resource.file}}
       {{/if}}

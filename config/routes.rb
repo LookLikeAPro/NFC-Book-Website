@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     mount_ember_app :frontend, to: "/"
   else
     get '*anything' => 'frontend#index'
+    get '' => 'frontend#index'
   end
 
   # Example resource route with options:
