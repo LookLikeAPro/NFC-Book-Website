@@ -10,7 +10,7 @@ export default DS.Model.extend({
   hasEbook: Ember.computed(function() {
     return DS.PromiseObject.create({
       promise: this.get('resources').then( function (allResources) {
-        return Promise.all(allResources.map(function(resource) {
+        return Ember.RSVP.Promise.all(allResources.map(function(resource) {
           return resource.get("isEbook");
         })).then(function(results) {
           return !results.every(function(result) {return result === false;});
@@ -21,7 +21,7 @@ export default DS.Model.extend({
   hasAudiobook: Ember.computed(function() {
     return DS.PromiseObject.create({
       promise: this.get('resources').then( function (allResources) {
-        return Promise.all(allResources.map(function(resource) {
+        return Ember.RSVP.Promise.all(allResources.map(function(resource) {
           return resource.get("isAudiobook");
         })).then(function(results) {
           return !results.every(function(result) {return result === false;});
@@ -32,7 +32,7 @@ export default DS.Model.extend({
   hasInterview: Ember.computed(function() {
     return DS.PromiseObject.create({
       promise: this.get('resources').then( function (allResources) {
-        return Promise.all(allResources.map(function(resource) {
+        return Ember.RSVP.Promise.all(allResources.map(function(resource) {
           return resource.get("isInterview");
         })).then(function(results) {
           return !results.every(function(result) {return result === false;});
