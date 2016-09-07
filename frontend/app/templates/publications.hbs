@@ -1,26 +1,22 @@
-<div class="uk-grid">
-  <div class="uk-width-medium-1-6"></div>
-  <div class="uk-width-medium-4-6">
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
     <h2></h2>
     <div>
-      {{#each model as |publication|}}
-      {{#link-to "publication" publication}}
-      <div class="uk-panel uk-panel-box uk-panel-box-primary">
-        <div class="uk-grid">
-          <div class="uk-width-1-6">
-            <div class="book-icon"><img src={{publication.picture}} /></div>
+      {{#each model as |publication|}} {{#link-to "publication" publication}}
+      <div class="bs-callout bs-callout-warning" id="callout-tables-responsive-overflow">
+        <div class="row">
+          <div class="col-md-4">
+              <img class="img-responsive" src={{publication.picture}} />
           </div>
-          <div class="uk-width-5-6">
+          <div class="col-md-8">
             <h3 class="uk-panel-title">{{publication.title}}</h3>
             <p>{{publication.author}}</p>
             <p>{{publication.description}}</p>
           </div>
         </div>
       </div>
-      {{/link-to}}
-      {{/each}}
+      {{/link-to}} {{/each}}
     </div>
   </div>
-  <div class="uk-width-medium-1-6"></div>
 </div>
 {{outlet}}

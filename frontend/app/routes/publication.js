@@ -2,7 +2,28 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model(params) {
-    return this.get('store').findRecord('publication', params.publication_id).then(function(data){console.log(data);return data;});
+    return this.get('store').findRecord('publication', params.publication_id);
+  },
+  actions: {
+    listen: (function() {
+      var current = null;
+
+      return function(resource) {
+        if (resource === current && resource.get("expanded") === true) {
+          resource.set("expanded", false);
+          return;
+        }
+        resource.get('publication').then(function(publication) {
+            publication.get('resources').then(function(allResources) {
+              allResources.map(function(resource) {
+                resource.set("expanded", false);
+              });
+              resource.set("expanded", true);
+          });
+        });
+        current = resource;
+      };
+    })()
   }
   // setupController(controller, model) {
   //   controller.set('content', model);
