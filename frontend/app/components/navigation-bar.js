@@ -8,7 +8,13 @@ export default Ember.Component.extend({
 	}).property("expanded"),
 	actions: {
 		click: function() {
-			this.set("expanded", !this.get("expanded"));
+			var router = this.get('container').lookup('router:main');
+			if (router.currentPath === "publications") {
+				this.set("expanded", !this.get("expanded"));
+			}
+			else {
+				router.transitionTo('publications');
+			}
 		}
 	}
 });
