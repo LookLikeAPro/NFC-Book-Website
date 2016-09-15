@@ -1,11 +1,23 @@
 class PublicationsController < ApiController
 	def index
-		publications = Publication.all # Movie.scoped if using ActiveRecord 3.x
-		paginate json: publications
+		publications = Publication.all
+		paginate json: publications.as_json(
+			:only => [:title, :description, :author,],
+			:methods => [:picture_medium, :friendly_id]
+		)
 	end
 	def show
-		@publication = Publication.find(params[:id])
-		render json: @publication
+		@publication = Publication.friendly.find(params[:id])
+		render json: @publication.as_json(
+			:only => [:title, :description, :author,],
+			:methods => [:picture_medium, :friendly_id],
+			:include => {
+				:resources => {
+					:only => [:id, :group, :name, :description],
+					:methods => [:file_url,]
+				}
+			}
+		)
 	end
 	# def create
 	# 	if @publication.present?

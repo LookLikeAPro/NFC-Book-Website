@@ -1,6 +1,9 @@
 class FrontendController < ApplicationController
 	def index
-		render :layout => false
+		if !Rails.env.production?
+			return render 'index-hot', :layout => false
+		end
+		render 'index', :layout => false
 	end
 	def slugredirect
 		@publication = Publication.find_by!(slug: params[:slug])

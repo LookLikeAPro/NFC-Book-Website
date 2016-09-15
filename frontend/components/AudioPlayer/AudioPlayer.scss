@@ -1,0 +1,33 @@
+.titleBar {
+	background: #565a62;
+	padding: 6px;
+	border-radius: 22px 5px 5px 22px;
+	margin: 0 1px 2px 0;
+	.playPause {
+		display: inline-block;
+		border-radius: 20px;
+		background: #8e6100;
+		border: 1px solid #ffaf03;
+		box-shadow: 0 0 5px #403c36;
+		width: 56px;
+		height: 40px;
+		margin-right: 1em;
+		text-align: center;
+		padding-top: 6px;
+	}
+	span {
+		vertical-align: middle;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
+
+.player {
+	margin: 1em auto;
+	background: #292b2d;
+	color: #ffc74f;
+	border-radius: 24px 5px 5px;
+	box-shadow: 0 0 5px #2d2b29;
+	padding: 2px;
+	position: relative;
+}

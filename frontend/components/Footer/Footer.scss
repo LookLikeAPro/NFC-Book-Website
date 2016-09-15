@@ -1,0 +1,32 @@
+.footer1 {
+	// rgb(49, 107, 129)
+	padding: 30px 0px;
+	background: rgb(7, 77, 103) !important;
+	border-radius: 0 !important;
+	margin: 0 !important;
+	color: white;
+	.divider {
+		margin: auto;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		height: 1px;
+		background: rgb(49, 107, 129);
+	}
+}
+
+.footer2 {
+	background: #E0E0E0 !important;
+	border-radius: 0 !important;
+	margin: 0 !important;
+}
+
+.smallColumn {
+	h4 {
+		margin-bottom: 5px;
+	}
+	p {
+		margin: 0;
+		font-size: 11px;
+		font-weight: 900;
+	}
+}

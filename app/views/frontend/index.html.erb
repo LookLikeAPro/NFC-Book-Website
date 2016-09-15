@@ -1,16 +1,12 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <title>NFC Books</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%= stylesheet_link_tag 'ember-vendor', media: 'all' %>
-    <%= stylesheet_link_tag 'ember-frontend', media: 'all' %>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
-    <%= csrf_meta_tags %>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css" />
+    <%= stylesheet_link_tag 'react-frontend', media: 'all' %>
   </head>
   <body>
-    <%= javascript_include_tag 'ember-vendor' %>
-    <%= javascript_include_tag 'ember-frontend' %>
+    <div id="content"></div>
+    <%= javascript_include_tag 'react-frontend' %>
   </body>
 </html>

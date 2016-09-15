@@ -1,0 +1,23 @@
+$markerWidth: 49px;
+$markerHeight: 64px;
+
+$originX: $markerWidth * .5;
+$originY: $markerHeight;
+
+.marker {
+	background-image: url('./mapIcon.svg');
+	position: absolute;
+	cursor: pointer;
+	width: $markerWidth;
+	height: $markerHeight;
+	top: -$originY;
+	left: -$originX;
+	transform-origin: $originX $originY;
+	margin: 0;
+	padding: 0;
+	transform: translate3D(0,0,0) scale(0.6, 0.6);
+	transition: all 0.5s ease;
+	&:hover {
+		transform: translate3D(0,0,0) scale(0.7, 0.7);
+	}
+}

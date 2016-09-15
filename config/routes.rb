@@ -26,9 +26,15 @@ Rails.application.routes.draw do
   get 'nfc/:slug' => 'frontend#slugredirect'
 
   if !Rails.env.production?
-    mount_ember_app :frontend, to: "/"
+    get '*path' => 'frontend#index'
+    get '' => 'frontend#index'
   else
-    get '*anything' => 'frontend#index'
+    # EBS seems to do route matching differently
+    # Use retarded method to catch most paths
+    get ':a'=> 'frontend#index'
+    get ':a/:b' => 'frontend#index'
+    get ':a/:b/:c' => 'frontend#index'
+    get '*path' => 'frontend#index'
     get '' => 'frontend#index'
   end
 

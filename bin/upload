@@ -12,14 +12,10 @@ Dir.chdir APP_ROOT do
       puts "== Removing temporary commit =="
       system "git reset --soft HEAD~1;"
     end
-    system "rm app/assets/stylesheets/ember-vendor.css"
-    system "rm app/assets/stylesheets/ember-frontend.css"
-    system "rm app/assets/javascripts/ember-vendor.js"
-    system "rm app/assets/javascripts/ember-frontend.js"
-    system "git add app/assets/stylesheets/ember-vendor.css"
-    system "git add app/assets/stylesheets/ember-frontend.css"
-    system "git add app/assets/javascripts/ember-vendor.js"
-    system "git add app/assets/javascripts/ember-frontend.js"
+    system "rm app/assets/stylesheets/react-frontend.css"
+    system "rm app/assets/javascripts/react-frontend.js"
+    system "git add app/assets/stylesheets/react-frontend.css"
+    system "git add app/assets/javascripts/react-frontend.js"
   end
 
   # This script is a starting point to setup your application.
@@ -28,18 +24,12 @@ Dir.chdir APP_ROOT do
   system "cd frontend; npm run build;"
 
   puts "== Moving assets to pipeline =="
-  system "mv frontend/dist/assets/vendor.css app/assets/stylesheets/ember-vendor.css"
-  system "mv frontend/dist/assets/frontend.css app/assets/stylesheets/ember-frontend.css"
-  system "mv frontend/dist/assets/vendor.js app/assets/javascripts/ember-vendor.js"
-  system "mv frontend/dist/assets/frontend.js app/assets/javascripts/ember-frontend.js"
-
-  system "rm -r frontend/dist/;"
+  system "cp frontend/build/client/main.css app/assets/stylesheets/react-frontend.css"
+  system "cp frontend/build/client/main.js app/assets/javascripts/react-frontend.js"
 
   puts "== Creating temporary commit =="
-  system "git add app/assets/stylesheets/ember-vendor.css"
-  system "git add app/assets/stylesheets/ember-frontend.css"
-  system "git add app/assets/javascripts/ember-vendor.js"
-  system "git add app/assets/javascripts/ember-frontend.js"
+  system "git add app/assets/stylesheets/react-frontend.css"
+  system "git add app/assets/javascripts/react-frontend.js"
   system "git commit -m 'temp';"
   created_commit = true
 

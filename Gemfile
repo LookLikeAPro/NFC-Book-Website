@@ -42,7 +42,7 @@ gem 'grape', '>= 0.10.0'
 gem 'kaminari'
 
 gem 'api-pagination'
-gem 'active_model_serializers', '~> 0.10.0'
+gem 'friendly_id'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -56,7 +56,6 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem "ember-cli-rails"
 end
 
 group :production do
