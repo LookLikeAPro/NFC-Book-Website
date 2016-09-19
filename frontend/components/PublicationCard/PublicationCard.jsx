@@ -12,7 +12,7 @@ export default class PublicationCard extends Component {
 	render() {
 		const {publication} = this.props;
 		return (<Card className="book-card" initiallyExpanded={false}>
-			<Link to={`/publications/${publication.id}`}>
+			<Link to={`/books/${publication.id}`}>
 			<CardMedia>
 				<img src={publication.picture}/>
 			</CardMedia>

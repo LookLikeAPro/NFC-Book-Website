@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -22,21 +23,17 @@ Rails.application.routes.draw do
       resources :resources
     end
   end
+  scope '/api' do
+    scope '/v2' do
+      resources :publications
+      resources :resources
+    end
+  end
 
   get 'nfc/:slug' => 'frontend#slugredirect'
 
-  if !Rails.env.production?
-    get '*path' => 'frontend#index'
-    get '' => 'frontend#index'
-  else
-    # EBS seems to do route matching differently
-    # Use retarded method to catch most paths
-    get ':a'=> 'frontend#index'
-    get ':a/:b' => 'frontend#index'
-    get ':a/:b/:c' => 'frontend#index'
-    get '*path' => 'frontend#index'
-    get '' => 'frontend#index'
-  end
+  root :to => 'frontend#index'
+  get '*path' => 'frontend#index'
 
   # Example resource route with options:
   #   resources :products do

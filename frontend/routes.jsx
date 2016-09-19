@@ -10,13 +10,13 @@ import NotFoundPage from "containers/NotFoundPage";
 import WelcomePage from "containers/WelcomePage";
 
 const routes = (<Route>
-			<Route path="/" component={Application}>
+			<Route component={Application}>
 				<Route path="welcome" component={WelcomePage} />
-				<IndexRedirect to="/publications" />
-				<Route path="publications/:id" component={PublicationDetail} />
-				<Route path="publications" component={PublicationList} />
+				<Route path="books/:id" component={PublicationDetail} />
+				<Route path="books" component={PublicationList} />
 				<Route path="about" component={AboutPage} />
 			</Route>
+			<Redirect from="/" to="books" />
 			<Route path="*" component={NotFoundPage}/>
 		</Route>);
 

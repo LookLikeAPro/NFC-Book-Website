@@ -13,4 +13,9 @@ class Publication < ActiveRecord::Base
 	def picture_original
 		self.picture.url(:original)
 	end
+	def slug=(value) # To generate slug when saving through rails-admin
+		if value.present?
+			write_attribute(:slug, value)
+		end
+	end
 end

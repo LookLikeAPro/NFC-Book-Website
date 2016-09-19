@@ -30,12 +30,6 @@ class PublicationStore {
 				let publication = new Publication(result);
 				this.publications.set(publication.id, publication);
 				pageItems.push(publication);
-				pageItems.push(publication);
-				pageItems.push(publication);
-				pageItems.push(publication);
-				pageItems.push(publication);
-				pageItems.push(publication);
-				// this.paginated.set((page-1)*itemsPerPage+i, new Publication(results[i]));
 			}
 			this.pagination.set(page, pageItems);
 
