@@ -6,7 +6,7 @@ export default class Paginate extends Component {
 	render() {
 		return (<ReactPaginate previousLabel={"previous"}
 			nextLabel={"next"}
-			breakLabel={<li className="break"><a href="">...</a></li>}
+			breakLabel={<a href="">...</a>}
 			marginPagesDisplayed={1}
 			pageRangeDisplayed={7}
 			containerClassName={"pagination"}

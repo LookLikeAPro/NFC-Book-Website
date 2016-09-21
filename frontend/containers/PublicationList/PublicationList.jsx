@@ -5,21 +5,31 @@ import Row from "elemental/lib/components/Row";
 import Col from "elemental/lib/components/Col";
 import CircularProgress from "material-ui/CircularProgress";
 
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import PublicationCard from "components/PublicationCard";
+import Paginate from "components/Paginate";
 
 @inject("publicationStore") @observer export default class PublicationList extends Component {
 	static propTypes = {
 		publicationStore: PropTypes.object.isRequired,
 		location: PropTypes.object.isRequired
 	};
+	static contextTypes = {
+		router: PropTypes.object
+	}
 	componentWillMount() {
-		const page = this.props.location.query.page || 1;
-		this.props.publicationStore.getPage(page);
+	}
+	handlePageClick = (data) => {
+		this.props.publicationStore.getPage(data.selected+1);
+		this.context.router.push({
+			pathname: this.props.location.pathname,
+			query: {
+				page: data.selected+1
+			}
+		});
 	}
 	render() {
-		const page = this.props.location.query.page || 1;
-		const {pagination} = this.props.publicationStore;
+		const page = parseInt(this.props.location.query.page) || 1;
+		const {pagination, pages} = this.props.publicationStore;
 		return (<Row>
 			<Col md="2/12"/>
 			<Col md="8/12">
@@ -29,11 +39,7 @@ import PublicationCard from "components/PublicationCard";
 			}): <div style={{textAlign: "center", width: "100%"}}><CircularProgress /></div>}
 			</Row>
 			<div>
-				<Card className="book-card">
-					<CardText>
-						<h3>Main book catalog coming soon.</h3>
-					</CardText>
-				</Card>
+				<Paginate pageNum={pages} initialSelected={page-1} clickCallback={this.handlePageClick} />
 			</div>
 			</Col>
 		</Row>);
