@@ -17,11 +17,11 @@ def create_entry(book)
 	publication.isbn = book["content"]["ISBN"]
 	publication.author = book["content"]["Author"]
 	publication.dewey_id = book["content"]["Dewey"]
-	begin
-		publication.picture = open(@EA_API_ROOT+book["cover"], "r")
-	rescue Exception
-		puts "unable to get picture "+@EA_API_ROOT+book["cover"]+" for book import_id: "+import_id
-	end
+	# begin
+	# 	publication.picture = open(@EA_API_ROOT+book["cover"], "r")
+	# rescue Exception
+	# 	puts "unable to get picture "+@EA_API_ROOT+book["cover"]+" for book import_id: "+import_id
+	# end
 	return publication
 end
 
