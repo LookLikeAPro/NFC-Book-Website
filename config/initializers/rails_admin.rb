@@ -23,4 +23,13 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  config.model 'Publication' do
+    list do
+      field :title
+      field :author
+      field :isbn
+      field :updated_at
+    end
+  end
 end
