@@ -22,6 +22,7 @@ export default class AboutPage extends Component {
 				<ListItem><b>Project Director:</b> Tony Tin</ListItem>
 				<ListItem><b>Project Lead:</b> Jerry Zhou</ListItem>
 				<ListItem><b>Author:</b> Deborah DeJong</ListItem>
+				<ListItem><b>Content Creator:</b> Brendan Leung</ListItem>
 			</List>
 			<List>
 				<Subheader>Pilot Members</Subheader>

@@ -1,6 +1,6 @@
 class PublicationsController < ApiController
 	def index
-		publications = Publication.all
+		publications = Publication.where("import_id is null")
 		paginate json: publications.as_json(
 			:only => [:title, :description, :author,],
 			:methods => [:picture_medium, :friendly_id]

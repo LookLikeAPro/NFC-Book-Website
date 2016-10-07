@@ -30,6 +30,7 @@ RailsAdmin.config do |config|
       field :author
       field :isbn
       field :updated_at
+      scopes [:all, :production_only]
     end
   end
 end
