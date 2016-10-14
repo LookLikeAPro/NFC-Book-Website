@@ -1,6 +1,6 @@
 class PublicationsController < ApiController
 	def index
-		publications = Publication.where("import_id is null")
+		publications = Publication.where(import_id: "")
 		paginate json: publications.as_json(
 			:only => [:title, :description, :author,],
 			:methods => [:picture_medium, :friendly_id]
@@ -9,7 +9,7 @@ class PublicationsController < ApiController
 	def show
 		@publication = Publication.friendly.find(params[:id])
 		render json: @publication.as_json(
-			:only => [:title, :description, :author,],
+			:only => [:title, :description, :author, :order],
 			:methods => [:picture_medium, :friendly_id],
 			:include => {
 				:resources => {

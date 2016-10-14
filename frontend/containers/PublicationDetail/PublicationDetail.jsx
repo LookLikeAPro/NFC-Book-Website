@@ -55,6 +55,9 @@ import AudioPlayer from "components/AudioPlayer";
 			}, 500);
 		}
 	}
+	mountVideo(resource) {
+		resource.uiPlayerOpen = !resource.uiPlayerOpen;
+	}
 	render() {
 		const bookID = this.props.params.id;
 		const publications = this.props.publicationStore.publications;
@@ -80,17 +83,32 @@ import AudioPlayer from "components/AudioPlayer";
 						<h4>{book.author}</h4>
 						<p>{book.description}</p>
 						{book.resourceGroups.map((group, i) => {
-							// book.getResourceGroup(group)
 							let items = book.getResourceGroup(group);
 							return (<Card key={i} style={{marginBottom: 10}}>
 								<CardHeader title={group} actAsExpander showExpandableButton
 								/>
 								<CardText expandable>
-									{group==="eBook"? items.map((item, i) => {
-										return <FlatButton key={i} label={item.displayName} onTouchTap={this.openDialog.bind(this, item.file)} />;
-									}) : <List>{items.map((item, i) => {
-										return <ListItem key={i} primaryText={item.name} onTouchTap={this.mountPlayer.bind(this, item)} />;
-									})}</List>}
+									{(()=>{
+										switch (group) {
+										case "eBook":
+											return items.map((item, i) => {
+												return <FlatButton key={i} label={item.displayName} onTouchTap={this.openDialog.bind(this, item.file)} />;
+											});
+										case "Videos":
+											return (<List>{items.map((item, i) => {
+												return (<div key={i}>
+														<ListItem primaryText={item.name} onTouchTap={this.mountVideo.bind(this, item)} />
+														{item.uiPlayerOpen? <video width="100%" controls>
+															<source src={item.file} type="video/mp4" />
+														</video> : false}
+													</div>);
+											})}</List>);
+										default:
+											return (<List>{items.map((item, i) => {
+												return <ListItem key={i} primaryText={item.name} onTouchTap={this.mountPlayer.bind(this, item)} />;
+											})}</List>);
+										}
+									})()}
 								</CardText>
 							</Card>);
 						})}

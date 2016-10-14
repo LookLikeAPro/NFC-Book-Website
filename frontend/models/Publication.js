@@ -6,6 +6,7 @@ class Resource {
 	@observable description = "";
 	@observable group = "";
 	@observable file = "";
+	@observable uiPlayerOpen = false;
 	constructor(data) {
 		this.id = data.id;
 		this.name = data.name;
@@ -33,6 +34,7 @@ export default class Publication {
 	@observable description = "";
 	@observable picture = "";
 	@observable resources = [];
+	@observable order = [];
 	constructor(data) {
 		this.id = data.friendly_id;
 		this.title = data.title;
@@ -40,10 +42,26 @@ export default class Publication {
 		this.description = data.description;
 		this.picture = data.picture_medium;
 		this.resources = data.resources? data.resources.map(resource => new Resource(resource)) : [];
+		if (data.order && data.order.length) {
+			this.order = data.order;
+		}
+		else {
+			this.order = ["Videos", "Audio Book", "eBook", "Interviews"];
+		}
 	}
 	@computed get resourceGroups() {
+		// First pick groups to follow order, then add unspecified groups
 		let groups = [];
 		let groupHash = {};
+		for (let i of this.order) {
+			for (let resource of this.resources) {
+				if (i === resource.group) {
+					groups.push(i);
+					groupHash[i] = true;
+					break;
+				}
+			}
+		}
 		for (let resource of this.resources) {
 			if (!groupHash[resource.group]) {
 				groupHash[resource.group] = true;

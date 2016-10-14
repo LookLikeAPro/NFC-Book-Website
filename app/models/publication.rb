@@ -1,6 +1,7 @@
 class Publication < ActiveRecord::Base
 	extend FriendlyId
-	scope :production_only, -> { where("import_id is null") }
+	scope :production_only, -> { where(import_id: "") }
+	serialize :order, Array
 	friendly_id :title, :use => :slugged
 	has_attached_file :picture, default_url: "/images/missing.png"
 	validates_attachment :picture, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
