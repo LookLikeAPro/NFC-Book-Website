@@ -1,4 +1,4 @@
-class Publication < ActiveRecord::Base
+class Publication < ApplicationRecord
 	extend FriendlyId
 	scope :production_only, -> { where(import_id: "") }
 	serialize :order, Array

@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.7'
+gem 'rails', '>= 5.0.0', '< 5.1'
 gem 'rake'
 # Use SCSS for stylesheets
 gem 'sass-rails'
@@ -16,7 +16,7 @@ gem 'coffee-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks', '2.5.3'
+gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -38,7 +38,7 @@ gem 'devise'
 gem "paperclip", "~> 5.1.0"
 
 # =========== Pagination ============
-gem 'rails-api'
+# gem 'rails-api'
 gem 'grape', '>= 0.10.0'
 # Then choose your preferred paginator from the following:
 gem 'kaminari'
