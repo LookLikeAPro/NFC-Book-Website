@@ -3,25 +3,14 @@ var webpack = require("webpack");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var StatsPlugin = require("stats-webpack-plugin");
 var loadersByExtension = require("./loadersByExtension");
-// var HotModuleReplacementPlugin = require("react-hot-loader/babel");
 var autoprefixer = require("autoprefixer");
 
 module.exports = function(options) {
 	//=====================ENTRY======================
 
-	if (options.hotComponents) {
-		var entry = [
-			"webpack-dev-server/client?http://localhost:2992",
-			"webpack/hot/only-dev-server",
-			"react-hot-loader/patch",
-			"./index"
-		];
-	}
-	else {
-		var entry = [
-			"./index"
-		];
-	}
+	var entry = [
+		"./index"
+	];
 
 	//=====================LOADERS======================
 	var babel = "babel?presets[]=react&presets[]=es2015&presets[]=stage-0&plugins[]=syntax-decorators&plugins[]=transform-decorators&plugins[]=transform-decorators-legacy";
@@ -112,7 +101,6 @@ module.exports = function(options) {
 	//=====================PLUGINS======================
 	var plugins = [
 		new webpack.PrefetchPlugin("react"),
-		new webpack.PrefetchPlugin("react/lib/ReactComponentBrowserEnvironment"),
 		new webpack.ProvidePlugin({
 			// fetch: "imports?this=>global!exports?global.fetch!whatwg-fetch"
 			fetch: "imports?this=>global!exports?global.fetch!isomorphic-fetch"
