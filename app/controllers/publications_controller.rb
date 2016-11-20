@@ -9,7 +9,7 @@ class PublicationsController < ApiController
 	def show
 		@publication = Publication.friendly.find(params[:id])
 		render json: @publication.as_json(
-			:only => [:title, :description, :author, :order],
+			:only => [:title, :description, :author],
 			:methods => [:picture_medium, :friendly_id],
 			:include => {
 				:resources => {

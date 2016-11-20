@@ -42,12 +42,7 @@ export default class Publication {
 		this.description = data.description;
 		this.picture = data.picture_medium;
 		this.resources = data.resources? data.resources.map(resource => new Resource(resource)) : [];
-		if (data.order && data.order.length) {
-			this.order = data.order;
-		}
-		else {
-			this.order = ["Videos", "Audio Book", "eBook", "Interviews"];
-		}
+		this.order = ["Videos", "Audio Book", "eBook", "Interviews"];
 	}
 	@computed get resourceGroups() {
 		// First pick groups to follow order, then add unspecified groups

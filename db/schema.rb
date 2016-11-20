@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161007182534) do
+ActiveRecord::Schema.define(version: 20161119200105) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20161007182534) do
     t.string   "import_id"
     t.string   "dewey_id"
     t.string   "isbn"
-    t.text     "order"
   end
 
   create_table "resources", force: :cascade do |t|

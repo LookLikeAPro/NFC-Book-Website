@@ -13,7 +13,6 @@ module.exports = function(options) {
 	];
 
 	//=====================LOADERS======================
-	var babel = "babel?presets[]=react&presets[]=es2015&presets[]=stage-0&plugins[]=syntax-decorators&plugins[]=transform-decorators&plugins[]=transform-decorators-legacy";
 	var loaders = {
 		json: "json-loader",
 		coffee: "coffee-redux-loader",
