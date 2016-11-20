@@ -81,37 +81,51 @@ import AudioPlayer from "components/AudioPlayer";
 						<h3>{book.title}</h3>
 						<Divider />
 						<h4>{book.author}</h4>
-						<p>{book.description}</p>
-						{book.resourceGroups.map((group, i) => {
-							let items = book.getResourceGroup(group);
-							return (<Card key={i} style={{marginBottom: 10}}>
-								<CardHeader title={group} actAsExpander showExpandableButton
-								/>
-								<CardText expandable>
-									{(()=>{
-										switch (group) {
-										case "eBook":
-											return items.map((item, i) => {
-												return <FlatButton key={i} label={item.displayName} onTouchTap={this.openDialog.bind(this, item.file)} />;
-											});
-										case "Videos":
-											return (<List>{items.map((item, i) => {
-												return (<div key={i}>
-														<ListItem primaryText={item.name} onTouchTap={this.mountVideo.bind(this, item)} />
-														{item.uiPlayerOpen? <video width="100%" controls>
-															<source src={item.file} type="video/mp4" />
-														</video> : false}
-													</div>);
-											})}</List>);
-										default:
-											return (<List>{items.map((item, i) => {
-												return <ListItem key={i} primaryText={item.name} onTouchTap={this.mountPlayer.bind(this, item)} />;
-											})}</List>);
-										}
-									})()}
-								</CardText>
-							</Card>);
-						})}
+						<div>{book.body? book.body.split("\n").map((line, i) => {
+							if (line === "") {
+								return <div key={i} />;
+							}
+							else if (line.substring(0, 3) === "<p>") {
+								return <p key={i}>{line.replace(/(<([^>]+)>)/ig, "")}</p>;
+							}
+							else if (line.substring(0, 4) === "<h6>") {
+								const group = line.replace(/(<([^>]+)>)/ig, "");
+								const groupType = book.inferGroupType(group);
+								if (groupType === "unknown") {
+									return <div key={i} />;
+								}
+								const items = book.getResourceGroup(group);
+								return (<Card key={i} style={{marginBottom: 10}}>
+									<CardHeader title={group} actAsExpander showExpandableButton />
+									<CardText expandable>
+										{(()=>{
+											switch (groupType) {
+											case "ebook":
+												return items.map((item, i) => {
+													return <FlatButton key={i} label={item.displayName} onTouchTap={this.openDialog.bind(this, item.file)} />;
+												});
+											case "video":
+												return (<List>{items.map((item, i) => {
+													return (<div key={i}>
+															<ListItem primaryText={item.name} onTouchTap={this.mountVideo.bind(this, item)} />
+															{item.uiPlayerOpen? <video width="100%" controls>
+																<source src={item.file} type="video/mp4" />
+															</video> : false}
+														</div>);
+												})}</List>);
+											case "audio":
+												return (<List>{items.map((item, i) => {
+													return <ListItem key={i} primaryText={item.name} onTouchTap={this.mountPlayer.bind(this, item)} />;
+												})}</List>);
+											default:
+												return false;
+											}
+										})()}
+									</CardText>
+								</Card>);
+							}
+							return <div key={i} />;
+						}) : false}</div>
 					</Paper>
 					</Col>
 				</Row> : <div style={{textAlign: "center", width: "100%"}}><CircularProgress /></div>}

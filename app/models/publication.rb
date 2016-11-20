@@ -1,3 +1,5 @@
+$markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,)
+
 class Publication < ApplicationRecord
 	extend FriendlyId
 	scope :production_only, -> { where(import_id: "") }
@@ -19,5 +21,8 @@ class Publication < ApplicationRecord
 		if value.present?
 			write_attribute(:slug, value)
 		end
+	end
+	def body
+		$markdown.render(self.description)
 	end
 end

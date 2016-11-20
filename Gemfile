@@ -37,6 +37,8 @@ gem 'rails_admin'
 gem 'devise'
 gem "paperclip", "~> 5.1.0"
 
+gem 'redcarpet'
+
 # =========== Pagination ============
 # gem 'rails-api'
 gem 'grape', '>= 0.10.0'
