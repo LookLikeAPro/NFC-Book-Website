@@ -46,6 +46,7 @@ export default class Publication {
 		this.picture = data.picture_medium;
 		this.resources = data.resources? data.resources.map(resource => new Resource(resource)) : [];
 		this.body = data.body;
+		console.log(this.body);
 	}
 	inferGroupType(group) {
 		const items = this.resources.filter(resource=>resource.group === group);

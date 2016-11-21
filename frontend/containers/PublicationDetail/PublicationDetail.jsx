@@ -66,6 +66,8 @@ import AudioPlayer from "components/AudioPlayer";
 			<FlatButton label="Cancel" secondary onTouchTap={::this.closeDialog} />,
 			<FlatButton label="Confirm" onTouchTap={::this.confirmDownload} />
 		];
+		let lastGroupIsEmpty = false;
+		let lastGroupName = "";
 		return (<Row>
 			<Dialog title="Starting Download" actions={dialogActions} modal={false} open={this.state.downloadDialogOpen} onRequestClose={this.closeDialog}>
 				Confirming this dialog will download the file to your device for offline reading.
@@ -92,8 +94,11 @@ import AudioPlayer from "components/AudioPlayer";
 								const group = line.replace(/(<([^>]+)>)/ig, "");
 								const groupType = book.inferGroupType(group);
 								if (groupType === "unknown") {
+									lastGroupIsEmpty = true;
+									lastGroupName = group;
 									return <div key={i} />;
 								}
+								lastGroupIsEmpty = false;
 								const items = book.getResourceGroup(group);
 								return (<Card key={i} style={{marginBottom: 10}}>
 									<CardHeader title={group} actAsExpander showExpandableButton />
@@ -120,6 +125,33 @@ import AudioPlayer from "components/AudioPlayer";
 											default:
 												return false;
 											}
+										})()}
+									</CardText>
+								</Card>);
+							}
+							else if (line.substring(0, 4) === "<ul>" && lastGroupIsEmpty) {
+								const reference = book.body.split("\n");
+								return (<Card key={i} style={{marginBottom: 10}}>
+									<CardHeader title={lastGroupName} actAsExpander showExpandableButton />
+									<CardText expandable>
+										{(()=>{
+											let i2 = i+1;
+											let listItems = [];
+											while (reference[i2].substring(0, 5) !== "</ul>") {
+												if (reference[i2].substring(0, 4) === "<li>") {
+													let domParser = document.createElement("p");
+													domParser.innerHTML = reference[i2];
+													const tryGetTag = domParser.getElementsByTagName("a");
+													if (!tryGetTag.length) {
+														continue;
+													}
+													const text = tryGetTag[0].innerHTML;
+													const link = tryGetTag[0].href;
+													listItems.push(<p><a key={i2} href={link}>{text}</a></p>);
+												}
+												i2++;
+											}
+											return listItems;
 										})()}
 									</CardText>
 								</Card>);

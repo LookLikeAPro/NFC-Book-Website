@@ -36,6 +36,7 @@ export default class AboutPage extends Component {
 			<List>
 				<ListItem primaryText="Email" secondaryText="tony.tin@uwaterloo.ca" />
 			</List>
+			<a href="/auth">Admin</a>
 			</Col>
 		</Row>);
 	}

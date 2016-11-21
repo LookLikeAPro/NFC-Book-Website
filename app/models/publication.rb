@@ -1,4 +1,4 @@
-$markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,)
+$markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, tables: true)
 
 class Publication < ApplicationRecord
 	extend FriendlyId

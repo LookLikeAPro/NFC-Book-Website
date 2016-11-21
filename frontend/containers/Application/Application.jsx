@@ -23,8 +23,8 @@ class Application extends Component {
 		return (<div className={styles.appContainer}>
 			<Drawer docked={false} open={this.state.drawerOpen} onRequestChange={(drawerOpen) => this.setState({drawerOpen})}>
 				<Link to={"/"}><MenuItem onTouchTap={this.closeDrawer}>Books</MenuItem></Link>
-				<Link to={"about"}><MenuItem onTouchTap={this.closeDrawer}>About</MenuItem></Link>
-				<Link to={"credits"}><MenuItem onTouchTap={this.closeDrawer}>Credits</MenuItem></Link>
+				<Link to={"/about"}><MenuItem onTouchTap={this.closeDrawer}>About</MenuItem></Link>
+				<Link to={"/credits"}><MenuItem onTouchTap={this.closeDrawer}>Credits</MenuItem></Link>
 			</Drawer>
 			<DebugWarningBar />
 			<NavBar className={styles.navBarFlex} toggleDrawer={this.toggleDrawer} />
